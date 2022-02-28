@@ -68,7 +68,7 @@ clear
 echo "Setting up UFW Firewall Rules"
 sleep 3
 sudo ufw enable
-Default_ports=(80 443 22 8080)
+Default_ports=(80 443 8080 22)
 for port in ${Default_ports[@]}
 do 
  sudo ufw allow $port
