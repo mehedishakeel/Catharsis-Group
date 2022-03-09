@@ -41,9 +41,9 @@ clear
 
 echo "Adding Java HOME & PATH"
 java -version
-sudo echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto" >>~/.bashrc
-sudo echo "export PATH=$PATH:$JAVA_HOME/bin" >>~/.bashrc
-sudo source ~/.bashrc
+echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto" >>~/.bashrc
+echo "export PATH=$PATH:$JAVA_HOME/bin" >>~/.bashrc
+source ~/.bashrc
 sudo echo "JAVA_HOME SET TO :" $JAVA_HOME
 sleep 3
 echo "PATH SET TO :" $PATH
