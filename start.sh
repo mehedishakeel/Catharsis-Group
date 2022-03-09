@@ -53,16 +53,16 @@ clear
 echo "Installing Tomcat 8"
 sudo mkdir -p /opt/tomcat
 sudo useradd -m -U -d /opt/tomcat -s /bin/false tomcat
-sudo curl -L https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.75/bin/apache-tomcat-8.5.75.zip --output files/apache-tomcat-8.5.75.zip
-sudo unzip files/apache-tomcat-8.5.75.zip
-sudo mv apache-tomcat-8.5.75 /opt/tomcat
-sudo ln -s /opt/tomcat/apache-tomcat-8.5.37 /opt/tomcat/latest
+sudo curl -L https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.76/bin/apache-tomcat-8.5.76.zip --output files/apache-tomcat-8.5.75.zip
+sudo unzip files/apache-tomcat-8.5.76.zip
+sudo mv apache-tomcat-8.5.76 /opt/tomcat
+sudo ln -s /opt/tomcat/apache-tomcat-8.5.76 /opt/tomcat/latest
 sudo chown -R tomcat: /opt/tomcat
 sudo sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'
-sudo chmod +x /opt/tomcat/apache-tomcat-8.5.75/bin/catalina.sh
-sudo chmod +x /opt/tomcat/apache-tomcat-8.5.75/bin/startup.sh
-sudo bash /opt/tomcat/apache-tomcat-8.5.75/bin/catalina.sh
-sudo bash /opt/tomcat/apache-tomcat-8.5.75/bin/startup.sh
+sudo chmod +x /opt/tomcat/apache-tomcat-8.5.76/bin/catalina.sh
+sudo chmod +x /opt/tomcat/apache-tomcat-8.5.76/bin/startup.sh
+sudo bash /opt/tomcat/apache-tomcat-8.5.76/bin/catalina.sh
+sudo bash /opt/tomcat/apache-tomcat-8.5.76/bin/startup.sh
 clear
 
 echo "Setting up UFW Firewall Rules"
