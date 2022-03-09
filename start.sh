@@ -54,7 +54,7 @@ clear
 
 echo "Adding Java HOME & PATH"
 java -version
-echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >>~/.bashrc
+echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto" >>~/.bashrc
 echo "export PATH=$PATH:$JAVA_HOME/bin" >>~/.bashrc
 source ~/.bashrc
 echo "JAVA_HOME SET TO :" $JAVA_HOME
