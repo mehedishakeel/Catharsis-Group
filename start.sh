@@ -66,8 +66,8 @@ clear
 echo "Installing Tomcat 8"
 sudo mkdir -p /opt/tomcat
 sudo useradd -m -U -d /opt/tomcat -s /bin/false tomcat
-sudo curl -L https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.76/bin/apache-tomcat-8.5.76.zip --output files/apache-tomcat-8.5.76.zip
-sudo unzip files/apache-tomcat-8.5.76.zip
+sudo wgethttps://dlcdn.apache.org/tomcat/tomcat-8/v8.5.76/bin/apache-tomcat-8.5.76.zip
+sudo unzip apache-tomcat-8.5.76.zip
 sudo mv apache-tomcat-8.5.76 /opt/tomcat
 sudo ln -s /opt/tomcat/apache-tomcat-8.5.76 /opt/tomcat/latest
 sudo chown -R tomcat: /opt/tomcat
