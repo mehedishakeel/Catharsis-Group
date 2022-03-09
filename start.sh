@@ -33,7 +33,7 @@ clear
 echo "Setting up UFW Firewall Rules"
 sleep 3
 sudo ufw enable
-Default_ports=(80 443 22)
+Default_ports=(80 443 8080 22)
 for port in ${Default_ports[@]}
 do 
  sudo ufw allow $port
@@ -48,7 +48,8 @@ sleep 3
 sudo mkdir files
 sudo wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add - 
 sudo add-apt-repository 'deb https://apt.corretto.aws stable main'
-sudo apt-get update; sudo apt-get install -y java-1.8.0-amazon-corretto-jdk
+sudo apt-get update
+sudo apt-get install -y java-1.8.0-amazon-corretto-jdk
 clear
 
 echo "Adding Java HOME & PATH"
