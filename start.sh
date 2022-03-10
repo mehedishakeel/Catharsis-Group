@@ -19,7 +19,7 @@ sleep 3
 
 echo "Installing Requirements Packages"
 sleep 3
-pkgs=(wget curl ufw java-common unzip)
+pkgs=(wget curl ufw unzip)
 for pkg in ${pkgs[@]}
 do
  sudo apt install $pkg
@@ -33,7 +33,7 @@ clear
 echo "Setting up UFW Firewall Rules"
 sleep 3
 sudo ufw enable
-Default_ports=(80 443 8080 22)
+Default_ports=(80 8080 443 22)
 for port in ${Default_ports[@]}
 do 
  sudo ufw allow $port
@@ -52,9 +52,10 @@ sudo apt-get update
 sudo apt-get install -y java-1.8.0-amazon-corretto-jdk
 clear
 
+
 echo "Adding Java HOME & PATH"
 java -version
-echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto" >>~/.bashrc
+echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >>~/.bashrc
 echo "export PATH=$PATH:$JAVA_HOME/bin" >>~/.bashrc
 source ~/.bashrc
 echo "JAVA_HOME SET TO :" $JAVA_HOME
@@ -66,8 +67,8 @@ clear
 echo "Installing Tomcat 8"
 sudo mkdir -p /opt/tomcat
 sudo useradd -m -U -d /opt/tomcat -s /bin/false tomcat
-sudo wgethttps://dlcdn.apache.org/tomcat/tomcat-8/v8.5.76/bin/apache-tomcat-8.5.76.zip
-sudo unzip apache-tomcat-8.5.76.zip
+sudo curl -L https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.76/bin/apache-tomcat-8.5.76.zip --output files/apache-tomcat-8.5.76.zip
+sudo unzip files/apache-tomcat-8.5.76.zip
 sudo mv apache-tomcat-8.5.76 /opt/tomcat
 sudo ln -s /opt/tomcat/apache-tomcat-8.5.76 /opt/tomcat/latest
 sudo chown -R tomcat: /opt/tomcat
