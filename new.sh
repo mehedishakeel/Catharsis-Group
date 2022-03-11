@@ -73,7 +73,7 @@ sudo mv apache-tomcat-8.5.76 /opt/tomcat
 sudo ln -s /opt/tomcat/apache-tomcat-8.5.76 /opt/tomcat/latest
 sudo chown -R tomcat: /opt/tomcat
 
-sudo cat <<EOF >/etc/systemd/system/tomcat.service
+sudo bash -c "cat > /etc/systemd/system/tomcat.service << EOF
 [Unit]
 Description=Apache Tomcat Web Application Container
 After=network.target
@@ -100,17 +100,13 @@ Restart=always
 [Install]
 WantedBy=multi-user.target
 EOF
+"
 
 sudo systemctl daemon-reload
 sudo systemctl start tomcat
 sudo systemctl status tomcat
 sudo systemctl enable tomcat
 
-sudo cat <<EOF >/opt/tomcat/conf/tomcat-users.xml
-<tomcat-users . . .>
-    <user username="admin" password="password" roles="manager-gui,admin-gui"/>
-</tomcat-users>
-EOF
 
 sudo systemctl restart tomcat
 echo "Tomcat Server Started"
