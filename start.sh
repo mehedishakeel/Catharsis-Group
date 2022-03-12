@@ -19,7 +19,7 @@ sleep 3
 
 echo "Installing Requirements Packages"
 sleep 3
-pkgs=(wget curl ufw unzip)
+pkgs=(wget curl ufw java-common unzip)
 for pkg in ${pkgs[@]}
 do
  sudo apt install $pkg
@@ -33,7 +33,7 @@ clear
 echo "Setting up UFW Firewall Rules"
 sleep 3
 sudo ufw enable
-Default_ports=(80 8080 443 22)
+Default_ports=(80 443 8080 22)
 for port in ${Default_ports[@]}
 do 
  sudo ufw allow $port
@@ -46,12 +46,11 @@ clear
 echo "Setting Up AWS JDK"
 sleep 3
 sudo mkdir files
-sudo wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add - 
-sudo add-apt-repository 'deb https://apt.corretto.aws stable main'
-sudo apt-get update
-sudo apt-get install -y java-1.8.0-amazon-corretto-jdk
+# AWS corretto Linux .Download deb file
+sudo curl -L https://corretto.aws/downloads/latest/amazon-corretto-8-x64-linux-jdk.deb --output files/amazon-corretto-8-x64-linux-jdk.deb
+#Install Amazon corretto
+sudo apt install ./files/amazon-corretto-8-x64-linux-jdk.deb
 clear
-
 
 echo "Adding Java HOME & PATH"
 java -version
