@@ -19,7 +19,7 @@ sleep 3
 
 echo "Installing Requirements Packages"
 sleep 3
-pkgs=(wget curl ufw java-common unzip)
+pkgs=(wget curl ufw unzip)
 for pkg in ${pkgs[@]}
 do
  sudo apt install $pkg
@@ -54,7 +54,7 @@ clear
 
 echo "Adding Java HOME & PATH"
 java -version
-echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >>~/.bashrc
+echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto" >>~/.bashrc
 echo "export PATH=$PATH:$JAVA_HOME/bin" >>~/.bashrc
 source ~/.bashrc
 echo "JAVA_HOME SET TO :" $JAVA_HOME
@@ -64,19 +64,43 @@ sleep 3
 clear
 
 echo "Installing Tomcat 8"
-sudo mkdir -p /opt/tomcat
-sudo useradd -m -U -d /opt/tomcat -s /bin/false tomcat
-sudo curl -L https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.76/bin/apache-tomcat-8.5.76.zip --output files/apache-tomcat-8.5.76.zip
-sudo unzip files/apache-tomcat-8.5.76.zip
-sudo mv apache-tomcat-8.5.76 /opt/tomcat
-sudo ln -s /opt/tomcat/apache-tomcat-8.5.76 /opt/tomcat/latest
-sudo chown -R tomcat: /opt/tomcat
-sudo sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'
-sudo chmod +x /opt/tomcat/apache-tomcat-8.5.76/bin/catalina.sh
-sudo chmod +x /opt/tomcat/apache-tomcat-8.5.76/bin/startup.sh
-sudo bash /opt/tomcat/apache-tomcat-8.5.76/bin/catalina.sh
-sudo bash /opt/tomcat/apache-tomcat-8.5.76/bin/startup.sh
-clear
-echo "Tomcat Server Started"
-echo "Visit To : http://localhost:8080"
-echo "Thank You!!!"
+sudo groupadd tomcat
+sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
+cd /tmp
+curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.76/bin/apache-tomcat-8.5.76.tar.gz
+sudo mkdir /opt/tomcat
+sudo tar xzvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1
+cd /opt/tomcat
+sudo chgrp -R tomcat /opt/tomcat
+sudo chmod -R g+r conf
+sudo chmod g+x conf
+sudo chown -R tomcat webapps/ work/ temp/ logs/
+
+sudo bash -c "sudo cat > /etc/systemd/system/tomcat.service << EOF
+[Unit]
+Description=Apache Tomcat Web Application Container
+After=network.target
+[Service]
+Type=forking
+Environment=JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto
+Environment=CATALINA_PID=/opt/tomcat/temp/tomcat.pid
+Environment=CATALINA_HOME=/opt/tomcat
+Environment=CATALINA_BASE=/opt/tomcat
+Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
+Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
+User=tomcat
+Group=tomcat
+UMask=0007
+RestartSec=10
+Restart=always
+[Install]
+WantedBy=multi-user.target
+EOF
+"
+sudo systemctl daemon-reload
+sudo systemctl start tomcat
+sudo systemctl enable tomcat
+sudo systemctl status tomcat
+
