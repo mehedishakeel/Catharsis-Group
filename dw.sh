@@ -79,4 +79,7 @@ sudo tar -xvzf dw/resources/amazon-corretto-8.322.06.2-linux-aarch64.tar.gz -C d
 
 sudo mv dw/apache-tomcat-8.5.77 dw/tomcat8
 sudo mv dw/amazon-corretto-8.322.06.2-linux-aarch64 dw/jdk8
+clear
 
+ls dw/resources
+ls dw
