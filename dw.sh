@@ -1,6 +1,7 @@
 #!/bin/bash
 
 clear
+cd
 echo "Updating & Upgrading"
 sudo apt update -y && sudo apt upgrade -y
 clear
@@ -69,10 +70,11 @@ clear
 
 echo "Extracting Resources "
 cd
+pwd
+sleep 3
 sudo tar -xvzf dw/resources/apache-tomcat-8.5.77.tar.gz -C dw
 sudo tar -xvzf dw/resources/postgresql-10.20.tar.gz -C dw
 sudo tar -xvzf dw/resources/amazon-corretto-8.322.06.2-linux-aarch64.tar.gz -C dw
-echo "Done"
 
 
 
