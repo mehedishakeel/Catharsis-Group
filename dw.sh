@@ -30,7 +30,7 @@ clear
 
 echo "Installing Requirements Packages"
 sleep 3
-pkgs=(wget ufw unzip htop svn)
+pkgs=(wget ufw unzip htop subversion)
 for pkg in ${pkgs[@]}
 do
  sudo apt install $pkg
