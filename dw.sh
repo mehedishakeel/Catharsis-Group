@@ -59,9 +59,10 @@ echo "Making Directories & Downloading Resources"
 sudo mkdir -p dw/resources
 cd dw/resources
 sudo wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.77/bin/apache-tomcat-8.5.77.tar.gz
+sudo wget https://corretto.aws/downloads/latest/amazon-corretto-8-aarch64-linux-jdk.tar.gz
 sudo wget https://ftp.postgresql.org/pub/source/v10.20/postgresql-10.20.tar.gz
-#sudo wget amazon-corretto-url
 sudo tar -xvzf apache-tomcat-8.5.77.tar.gz -C /home/$USER/dw/
+sudo tar -xvzf amazon-corretto-8-aarch64-linux-jdk.tar.gz -C /home/$USER/dw/
 sudo tar -xvzf postgresql-10.20.tar.gz -C /home/$USER/dw/
 echo "Done"
 
