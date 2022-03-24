@@ -74,8 +74,9 @@ sudo tar -xvzf postgresql-10.20.tar.gz -C /dw
 echo "Done"
 sleep 3
 
-sudo mv /dw/apache-tomcat-8.5.77 /dw/tomcat8
-sudo mv /dw/amazon-corretto-8.322.06.2-linux-aarch64 /dw/jdk8
+cd /dw
+sudo mv apache-tomcat-8.5.77 tomcat8
+sudo mv amazon-corretto-8.322.06.2-linux-aarch64 jdk8
 echo "Done"
 
 
