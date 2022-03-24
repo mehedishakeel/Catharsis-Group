@@ -68,16 +68,16 @@ sleep 3
 clear
 
 echo "Extracting Resources "
-cd /dw
-sudo tar -xvzf resources/apache-tomcat-8.5.77.tar.gz
-sudo tar -xvzf resources/amazon-corretto-8.322.06.2-linux-aarch64.tar.gz
-sudo tar -xvzf resources/postgresql-10.20.tar.gz
+cd
+sudo tar -xvzf dw/resources/apache-tomcat-8.5.77.tar.gz -C /dw
+sudo tar -xvzf dw/resources/amazon-corretto-8.322.06.2-linux-aarch64.tar.gz -C /dw
+sudo tar -xvzf dw/resources/postgresql-10.20.tar.gz -C /dw
 echo "Done"
 sleep 3
 
-cd /dw
-sudo mv apache-tomcat-8.5.77 tomcat8
-sudo mv amazon-corretto-8.322.06.2-linux-aarch64 jdk8
+cd
+sudo mv /dw/apache-tomcat-8.5.77 /dw/tomcat8
+sudo mv /dw/amazon-corretto-8.322.06.2-linux-aarch64 /dw/jdk8
 echo "Done"
 
 
