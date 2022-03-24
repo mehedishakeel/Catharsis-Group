@@ -30,7 +30,7 @@ clear
 
 echo "Installing Requirements Packages"
 sleep 3
-pkgs=(wget ufw unzip htop)
+pkgs=(wget ufw unzip htop svn)
 for pkg in ${pkgs[@]}
 do
  sudo apt install $pkg
@@ -56,16 +56,16 @@ clear
 
 
 echo "Making Directories & Downloading Resources"
-sudo mkdir -p dw/resources
-cd dw/resources
+sudo mkdir -p /dw/resources
+cd /dw/resources
 sudo wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.77/bin/apache-tomcat-8.5.77.tar.gz
 sudo wget https://corretto.aws/downloads/latest/amazon-corretto-8-aarch64-linux-jdk.tar.gz
 sudo wget https://ftp.postgresql.org/pub/source/v10.20/postgresql-10.20.tar.gz
-sudo tar -xvzf apache-tomcat-8.5.77.tar.gz -C /home/$USER/dw/
-sudo tar -xvzf amazon-corretto-8-aarch64-linux-jdk.tar.gz -C /home/$USER/dw/
-sudo tar -xvzf postgresql-10.20.tar.gz -C /home/$USER/dw/
-sudo mv /home/$USER/dw/apache-tomcat-8.5.77 /home/$USER/dw/tomcat-8
-sudo mv /home/$USER/dw/amazon-corretto-8.322.06.2-linux-aarch64 /home/$USER/dw/jdk-8
+sudo tar -xvzf apache-tomcat-8.5.77.tar.gz -C /dw/
+sudo tar -xvzf amazon-corretto-8-aarch64-linux-jdk.tar.gz -C /dw/
+sudo tar -xvzf postgresql-10.20.tar.gz -C /dw/
+sudo mv /dw/apache-tomcat-8.5.77 /dw/tomcat8
+sudo mv /dw/amazon-corretto-8.322.06.2-linux-aarch64 /dw/jdk8
 echo "Done"
 
 
