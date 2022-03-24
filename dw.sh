@@ -1,4 +1,5 @@
 #!/bin/bash
+<<comment
 
 clear
 echo "Updating & Upgrading"
@@ -66,6 +67,7 @@ clear
 echo "Resource Downloaded"
 sleep 3
 clear
+comment 
 
 echo "Extracting Resources "
 cd
