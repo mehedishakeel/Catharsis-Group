@@ -62,6 +62,8 @@ sudo wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.77/bin/apache-tomcat-8.5
 sudo wget https://corretto.aws/downloads/resources/8.322.06.2/amazon-corretto-8.322.06.2-linux-aarch64.tar.gz
 sudo wget https://ftp.postgresql.org/pub/source/v10.20/postgresql-10.20.tar.gz
 sudo wget https://github.com/grails/grails-core/releases/download/v3.3.11/grails-3.3.11.zip
+echo "Resource Downloaded"
+sleep 3
 sudo tar -xvzf apache-tomcat-8.5.77.tar.gz -C /dw/
 sudo tar -xvzf amazon-corretto-8.322.06.2-linux-aarch64.tar.gz -C /dw/
 sudo tar -xvzf postgresql-10.20.tar.gz -C /dw/
