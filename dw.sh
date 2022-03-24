@@ -55,7 +55,7 @@ sleep 3
 clear
 
 
-echo "Making Directories & Downloading Resources"
+cho "Making Directories & Downloading Resources"
 sudo mkdir -p /dw/resources
 cd /dw/resources
 sudo wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.77/bin/apache-tomcat-8.5.77.tar.gz
