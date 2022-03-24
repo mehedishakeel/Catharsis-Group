@@ -30,7 +30,7 @@ clear
 
 echo "Installing Requirements Packages"
 sleep 3
-pkgs=(wget curl ufw unzip htop)
+pkgs=(wget ufw unzip htop)
 for pkg in ${pkgs[@]}
 do
  sudo apt install $pkg
