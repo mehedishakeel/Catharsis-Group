@@ -1,7 +1,6 @@
 #!/bin/bash
 
 clear
-cd
 echo "Updating & Upgrading"
 sudo apt update -y && sudo apt upgrade -y
 clear
@@ -57,8 +56,8 @@ clear
 
 
 echo "Making Directories & Downloading Resources"
-sudo mkdir -p dw/resources
-cd dw/resources
+sudo mkdir -p /dw/resources
+cd /dw/resources
 sudo wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.77/bin/apache-tomcat-8.5.77.tar.gz
 sudo wget https://corretto.aws/downloads/resources/8.322.06.2/amazon-corretto-8.322.06.2-linux-aarch64.tar.gz
 sudo wget https://ftp.postgresql.org/pub/source/v10.20/postgresql-10.20.tar.gz
@@ -69,16 +68,11 @@ sleep 3
 clear
 
 echo "Extracting Resources "
-cd
-pwd
 sleep 3
-sudo tar -xvzf dw/resources/apache-tomcat-8.5.77.tar.gz -C dw
-sudo tar -xvzf dw/resources/postgresql-10.20.tar.gz -C dw
-sudo tar -xvzf dw/resources/amazon-corretto-8.322.06.2-linux-aarch64.tar.gz -C dw
-sudo unzip dw/resources/grails-3.3.11.zip -d dw
-sudo mv dw/apache-tomcat-8.5.77 dw/tomcat8
-sudo mv dw/amazon-corretto-8.322.06.2-linux-aarch64 dw/jdk8
+sudo tar -xvzf /dw/resources/apache-tomcat-8.5.77.tar.gz -C /dw
+sudo tar -xvzf /dw/resources/postgresql-10.20.tar.gz -C /dw
+sudo tar -xvzf /dw/resources/amazon-corretto-8.322.06.2-linux-aarch64.tar.gz -C /dw
+sudo unzip /dw/resources/grails-3.3.11.zip -d /dw
+sudo mv /dw/apache-tomcat-8.5.77 dw/tomcat8
+sudo mv /dw/amazon-corretto-8.322.06.2-linux-aarch64 /dw/jdk8
 clear
-
-ls dw/resources
-ls dw
