@@ -71,7 +71,7 @@ java -version
 sleep 3
 clear
 
-echo "Downloading Apache Tomcat 8 & Grails"
+echo "Downloading Apache Tomcat8 & Grails3"
 sleep 3
 sudo wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.78/bin/apache-tomcat-8.5.78.tar.gz
 sudo wget https://github.com/grails/grails-core/releases/download/v3.3.11/grails-3.3.11.zip
