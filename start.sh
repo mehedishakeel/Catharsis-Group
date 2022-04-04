@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 # for optimize setting use following
 export CATALINA_OPTS="-server -noverify -Xms5G -Xmx5G"
 
