@@ -88,3 +88,5 @@ sudo unzip /dw/resources/grails-3.3.11.zip -d /dw
 sudo mv /dw/apache-tomcat-8.5.78 /dw/tomcat8
 sudo mv /dw/grails-3.3.11 /dw/grails3
 clear
+echo "DONE"
+
