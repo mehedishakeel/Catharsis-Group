@@ -55,23 +55,25 @@ sudo ufw status
 sleep 3
 clear
 
+echo "Installing Amazon Corretto JDK8"
+sudo wget https://corretto.aws/downloads/latest/amazon-corretto-8-x64-linux-jdk.deb
+sudo dpkg --install amazon-corretto-8-x64-linux-jdk.deb
+clear
+java -version
+echo "Amazon Corretto JDK8 is Installed"
+sleep 3
+clear
 
 echo "Making Directories"
 sudo mkdir -p /dw/resources
 cd /dw/resources
+clear
 
 echo "Downloading Apache Tomcat 8 & Grails"
+sleep 3
 sudo wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.78/bin/apache-tomcat-8.5.78.tar.gz
 sudo wget https://github.com/grails/grails-core/releases/download/v3.3.11/grails-3.3.11.zip
-
-
-echo "Installing Amazon Corretto JDK8"
-sudo wget https://corretto.aws/downloads/latest/amazon-corretto-8-x64-linux-jdk.deb
-sudo dpkg --install amazon-corretto-8-x64-linux-jdk.deb
-java -version
-
-
-
+echo "Apache Tomcat 8 & Grails Downloaded"
 clear
 echo "Resource Downloaded"
 sleep 3
