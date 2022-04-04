@@ -1,8 +1,6 @@
 #!/bin/bash
 
-echo "Setting Environment"
-export JAVA_HOME="/usr/bin/java"
-export PATH="$PATH:$JAVA_HOME/bin"
+
 
 # for optimize setting use following
 export CATALINA_OPTS="-server -noverify -Xms5G -Xmx5G"
