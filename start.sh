@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Setting Environment"
-export JAVA_HOME="/dw/jdk8"
+export JAVA_HOME="/usr/bin/java"
 export PATH="$PATH:$JAVA_HOME/bin"
 
 # for optimize setting use following
