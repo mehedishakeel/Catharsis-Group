@@ -30,7 +30,7 @@ clear
 
 echo "Installing Requirements Packages"
 sleep 3
-pkgs=(wget ufw unzip htop subversion)
+pkgs=(wget ufw unzip htop subversion java-common postgresql postgresql-contrib)
 for pkg in ${pkgs[@]}
 do
  sudo apt install $pkg
@@ -55,13 +55,21 @@ sleep 3
 clear
 
 
-echo "Making Directories & Downloading Resources"
+echo "Making Directories"
 sudo mkdir -p /dw/resources
 cd /dw/resources
+
+echo "Downloading Apache Tomcat 8 & Grails"
 sudo wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.77/bin/apache-tomcat-8.5.77.tar.gz
-sudo wget https://corretto.aws/downloads/resources/8.322.06.2/amazon-corretto-8.322.06.2-linux-aarch64.tar.gz
-sudo wget https://ftp.postgresql.org/pub/source/v10.20/postgresql-10.20.tar.gz
 sudo wget https://github.com/grails/grails-core/releases/download/v3.3.11/grails-3.3.11.zip
+
+
+echo "Installing Amazon Corretto JDK8"
+sudo wget https://corretto.aws/downloads/latest/amazon-corretto-8-x64-linux-jdk.deb
+sudo dpkg --install amazon-corretto-8-x64-linux-jdk.deb
+
+
+
 clear
 echo "Resource Downloaded"
 sleep 3
