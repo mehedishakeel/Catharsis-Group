@@ -34,6 +34,7 @@ pkgs=(wget ufw unzip htop subversion java-common postgresql postgresql-contrib)
 for pkg in ${pkgs[@]}
 do
  sudo apt install $pkg
+ clear
  echo "$pkg Installed"
  sleep 2
  clear
@@ -60,13 +61,14 @@ sudo mkdir -p /dw/resources
 cd /dw/resources
 
 echo "Downloading Apache Tomcat 8 & Grails"
-sudo wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.77/bin/apache-tomcat-8.5.77.tar.gz
+sudo wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.78/bin/apache-tomcat-8.5.78.tar.gz
 sudo wget https://github.com/grails/grails-core/releases/download/v3.3.11/grails-3.3.11.zip
 
 
 echo "Installing Amazon Corretto JDK8"
 sudo wget https://corretto.aws/downloads/latest/amazon-corretto-8-x64-linux-jdk.deb
 sudo dpkg --install amazon-corretto-8-x64-linux-jdk.deb
+java -version
 
 
 
@@ -77,10 +79,7 @@ clear
 
 echo "Extracting Resources "
 sleep 3
-sudo tar -xvzf /dw/resources/apache-tomcat-8.5.77.tar.gz -C /dw
-sudo tar -xvzf /dw/resources/postgresql-10.20.tar.gz -C /dw
-sudo tar -xvzf /dw/resources/amazon-corretto-8.322.06.2-linux-aarch64.tar.gz -C /dw
+sudo tar -xvzf /dw/resources/apache-tomcat-8.5.78.tar.gz -C /dw
 sudo unzip /dw/resources/grails-3.3.11.zip -d /dw
-sudo mv /dw/apache-tomcat-8.5.77 /dw/tomcat8
-sudo mv /dw/amazon-corretto-8.322.06.2-linux-aarch64 /dw/jdk8
+sudo mv /dw/apache-tomcat-8.5.78 /dw/tomcat8
 clear
