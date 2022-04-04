@@ -82,4 +82,5 @@ sleep 3
 sudo tar -xvzf /dw/resources/apache-tomcat-8.5.78.tar.gz -C /dw
 sudo unzip /dw/resources/grails-3.3.11.zip -d /dw
 sudo mv /dw/apache-tomcat-8.5.78 /dw/tomcat8
+sudo mv /dw/grails-3.3.11 /dw/grails3
 clear
